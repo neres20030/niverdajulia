@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Tema Escuro (Padrão) - Ajustado para melhor contraste */
+:root { 
+    --text-color: white;
+    /* Substitua pelo nome do seu arquivo de imagem escura */
+    --bg-url: url(./assets/Gemini_Generated_Image_663p1i663p1i663p.png); 
+    --stroke-color: rgba(255, 255, 255, 0.8); /* Aumentei a opacidade */
+    --surface-color: rgba(255, 255, 255, 0.1); /* Aumentei a opacidade para mais contraste */
+    --surface-color-hover: rgba(255, 255, 255, 0.05); /* Ajustado para hover mais suave */
+    --highlight-color: rgba(255, 255, 255, 0.3); /* Aumentei a opacidade */
+    --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+/* Tema Claro (.light) - Mantido */
+.light { 
+    --text-color: black;
+    /* Substitua pelo nome do seu arquivo de imagem clara */
+    --bg-url: url(./assets/Gemini_Generated_Image_wq8057wq8057wq80.png); 
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --highlight-color: rgba(0, 0, 0, 0.1);
+    --switch-bg-url: url(./assets/sun.svg);
+}
+
+body {
+    /* Propriedades para garantir o fundo em Mobile e Desktop */
+    background: var(--bg-url) no-repeat top center/cover;
+    height: 100vh;
+}
+
+body * {
+    font-family: "Inter", sans-serif;
+    color: var(--text-color);
+}
+
+#container {
+    width: 100%;
+    max-width: 588px;
+    margin: 56px auto 0;
+    padding: 0 24px;
+}
+
+#profile {
+    text-align: center;
+    padding: 24px;
+}
+
+#profile img {
+    width: 112px;
+}
+
+#profile p {
+    font-weight: 500;
+    line-height: 24px;
+    margin-top: 8px;
+}
+
+#switch {
+    position: relative;
+    width: 80px;
+    margin: 0 auto;
+}
+
+#switch button {
+    width: 33px;
+    height: 33px;
+    background: white var(--switch-bg-url) no-repeat center;
+    border: 0;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    transform: translateY(-11%);
+}
+
+.light #switch button {
+    right: 0;
+    left: initial;
+}
+
+#switch span {
+    display: block;
+    height: 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 9999px;
+}
+
+/* Links */
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 0;
+}
+
+ul li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+ul li a:hover {
+    background: var(--surface-color-hover);
+    border: 1.5px solid var(--text-color);
+}
+
+/* Social - CORREÇÃO: Removi o font-size do container e adicionei ao ícone */
+#social-links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    padding: 24px 0;
+    /* font-size: 24px; <--- REMOVIDO DAQUI */
+}
+
+/* NOVO: Aplica o tamanho na tag <i> dentro do link */
+#social-links a i {
+    font-size: 24px; 
+}
+
+#social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    transition: background 0.2s;
+}
+
+#social-links a:hover {
+    background: var(--highlight-color);
+}
+
+footer {
+    text-align: center;
+    padding: 24px;
+}
+
+/* Media Query para Desktop */
+@media (min-width: 700px) {
+    :root {
+        --bg-url: url(./assets/Gemini_Generated_Image_663p1i663p1i663p.png);
+    }
+
+    .light {
+        --bg-url: url(./assets/Gemini_Generated_Image_wq8057wq8057wq80.png);
+    }
+}
